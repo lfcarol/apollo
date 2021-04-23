@@ -21,6 +21,10 @@
 #include "modules/perception/common/i_lib/core/i_alloc.h"
 #include "modules/perception/common/i_lib/core/i_blas.h"
 #include "modules/perception/common/i_lib/pc/i_util.h"
+#if defined(__aarch64__) || defined(__arm__)
+#include "modules/perception/common/i_lib/sse2neon/sse2neon.h"
+#endif
+
 
 namespace apollo {
 namespace perception {

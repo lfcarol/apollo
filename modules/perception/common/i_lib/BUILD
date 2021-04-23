@@ -11,6 +11,7 @@ cc_library(
         "//modules/perception/common/i_lib/da:i_ransac",
         "//modules/perception/common/i_lib/geometry:i_plane",
         "//modules/perception/common/i_lib/pc:i_ground",
+        "//modules/perception/common/i_lib/pc:i_struct_s",
     ],
 )
 
