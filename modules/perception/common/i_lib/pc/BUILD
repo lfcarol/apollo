@@ -22,7 +22,7 @@ cc_library(
     name = "i_struct_s",
     hdrs = ["i_struct_s.h"],
     deps = if_aarch64([
-        "//modules/perception/common/i_lib/sse2neon:sse2neon",
+        "//third_party/sse2neon",
     ]),
 )
 
