@@ -1,5 +1,6 @@
 load("@rules_cc//cc:defs.bzl", "cc_library")
 load("//tools:cpplint.bzl", "cpplint")
+load("//tools/platform:build_defs.bzl", "if_aarch64")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -20,15 +21,9 @@ cc_library(
 cc_library(
     name = "i_struct_s",
     hdrs = ["i_struct_s.h"],
-    deps = select(
-        {
-            "@platforms//cpu:x86_64": [],
-	        "@platforms//cpu:aarch64": [
-                "//modules/perception/common/i_lib/sse2neon:sse2neon",
-	        ],
-	    },
-        no_match_error = "Please Build with an ARM or Linux x86_64 platform",
-    ),
+    deps = if_aarch64([
+        "//modules/perception/common/i_lib/sse2neon:sse2neon",
+    ]),
 )
 
 cc_library(
